@@ -61,3 +61,32 @@ footer p{margin:.5em 0}
 button:focus-visible{outline:3px solid var(--or);outline-offset:2px}
 @media(max-width:560px){.mt{gap:34px}.opt{padding:10px}.ico{width:60px;height:60px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+body{background:linear-gradient(rgba(2,6,13,.62),rgba(2,6,13,.62)),url(img/fondo.jpg) center/cover fixed,#02060d}
+#snd{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:20;width:46px;height:46px;border-radius:50%;border:1px solid var(--cy);background:var(--panel);color:var(--tx);font-size:1.3rem;cursor:pointer;box-shadow:0 0 14px var(--cy)}
+#inv{flex:1;font-size:.8rem;color:var(--or)}
+.pen{color:var(--bad);font-size:.8rem;text-align:center}
+.node.lock{opacity:.35}
+.lk{font-size:1.6rem;display:block;height:34px}
+#race{margin:0 0 14px;padding:10px;border:1px solid var(--or);border-radius:12px;background:var(--panel);box-shadow:0 0 16px rgba(255,138,31,.3)}
+.lane{position:relative;height:46px;margin:6px 0;border-bottom:2px dashed rgba(25,230,255,.4);background:linear-gradient(90deg,transparent 97%,#fff 97%,#fff 98%,var(--cy) 98%)}
+.cy{position:absolute;bottom:2px;width:62px;color:var(--or);filter:drop-shadow(0 0 6px currentColor);transition:left .35s linear,transform .35s linear}
+.cy.me{color:var(--cy)}
+.cy svg,.cy img{width:100%;display:block}
+.cy.rival img{filter:hue-rotate(170deg)}
+.cy.slow{animation:slow .6s infinite;opacity:.8}
+@keyframes slow{50%{bottom:6px}}
+.tr{position:absolute;left:0;bottom:8px;height:3px;background:var(--or);box-shadow:0 0 10px var(--or);transition:width .35s linear}
+.tr.me{background:var(--cy);box-shadow:0 0 10px var(--cy)}
+.ob{position:absolute;bottom:0;width:14px;height:22px;background:var(--or);opacity:.7;border-radius:2px}
+.ob.ok{background:var(--ok)}
+.ob.bad{background:var(--bad)}
+.tm{height:8px;border:1px solid var(--cy);border-radius:5px;overflow:hidden}
+.tm i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--bad),var(--cy))}
+#race small{display:block;color:var(--mu);margin-top:6px}
+.cd{font:800 5rem Orbitron,system-ui,sans-serif;color:var(--or);text-shadow:0 0 20px var(--or);animation:pop .7s infinite}
+.fl{position:fixed;top:32%;left:50%;transform:translateX(-50%);z-index:30;font:800 1.1rem Orbitron,system-ui,sans-serif;padding:8px 16px;border-radius:10px;background:var(--panel);animation:rise 1.4s forwards;pointer-events:none;text-align:center}
+.fl.ok{color:var(--ok);border:1px solid var(--ok)}
+.fl.bad{color:var(--bad);border:1px solid var(--bad)}
+@keyframes rise{to{transform:translate(-50%,-60px);opacity:0}}
+.prize{color:var(--or)}

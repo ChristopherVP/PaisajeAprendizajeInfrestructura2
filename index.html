@@ -9,14 +9,16 @@
 </head>
 <body>
 <div class="floor"></div>
+<button id="snd" type="button" aria-label="Activar o silenciar audio" aria-pressed="false">🔊</button>
 <div class="wrap">
 <header>
 <h1>LA RED DEL GRID</h1>
-<p class="sub">Paisaje de aprendizaje · Infraestructura de TI · Semanas 6 a 9</p>
+<p class="sub">Paisaje de aprendizaje · Infraestructura de TI</p>
 <div class="cyc" id="cyc"></div>
 </header>
-<div class="hud"><div>ENERGÍA<div class="meter"><i id="bar" style="width:100%"></i></div></div><div>XP <b id="xp">0</b></div></div>
+<div class="hud"><div id="inv"></div><div class="pen"></div><div>XP <b id="xp">0</b></div></div>
 <div id="map"></div>
+<div id="race" hidden></div>
 <main id="stage" aria-live="polite"></main>
 <footer>
 <details><summary>Referencias (IEEE)</summary>
