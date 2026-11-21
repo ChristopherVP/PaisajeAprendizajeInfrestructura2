@@ -1,0 +1,132 @@
+:root{color-scheme:dark;--bg:#02060d;--panel:rgba(7,19,31,.9);--cy:#19e6ff;--or:#ff8a1f;--ok:#3dff9a;--bad:#ff3b5c;--tx:#d9f6ff;--mu:#7fa8b8}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;overflow-x:hidden;
+  background:linear-gradient(rgba(2,6,13,.45),rgba(2,6,13,.7)),url(../img/fondos/fondo-grid.jpg) center/cover fixed no-repeat,var(--bg)}
+h1,h2,h3{font-family:Orbitron,system-ui,sans-serif;margin:.2em 0}
+h1{font-size:clamp(1.6rem,6vw,2.6rem);letter-spacing:.12em;color:var(--cy);text-align:center;text-shadow:0 0 12px var(--cy),0 0 30px var(--cy);animation:pulso 3s ease-in-out infinite}
+h2{color:var(--or);font-size:1.3rem;text-shadow:0 0 8px rgba(255,138,31,.6)}
+h3{color:var(--cy);font-size:1rem}
+p{margin:.7em 0}
+@keyframes pulso{50%{text-shadow:0 0 6px var(--cy),0 0 14px var(--cy)}}
+@keyframes entrar{from{opacity:0;transform:translateY(14px)}}
+@keyframes temblor{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes girar{to{transform:rotate(360deg)}}
+@keyframes flujo{from{background-position:0 0,0 0}to{background-position:0 60px,0 0}}
+
+/* Suelo animado */
+.floor{position:fixed;left:-50%;right:-50%;bottom:0;height:45vh;background:linear-gradient(var(--cy) 1px,transparent 1px) 0 0/60px 60px,linear-gradient(90deg,var(--cy) 1px,transparent 1px) 0 0/60px 60px;opacity:.18;transform:perspective(400px) rotateX(62deg);transform-origin:bottom;animation:flujo 2s linear infinite;pointer-events:none}
+.wrap{position:relative;max-width:860px;margin:0 auto;padding:18px 16px 40px}
+.sub{text-align:center;color:var(--mu);margin:0}
+
+/* Motos que cruzan la cabecera (usan las mismas imágenes de la carrera) */
+.ciclos{height:62px;position:relative;overflow:hidden}
+.ciclos::before{content:"";position:absolute;left:0;right:0;bottom:8px;height:3px;background:linear-gradient(90deg,transparent,var(--or));box-shadow:0 0 10px var(--or);opacity:.7}
+.ciclos img{position:absolute;bottom:8px;height:48px;width:auto;animation:cruzar 6s linear infinite}
+.ciclos img+img{animation-delay:-3s;animation-duration:7s}
+@keyframes cruzar{from{left:-120px}to{left:100%}}
+
+/* Barra superior (HUD) */
+.hud{display:flex;gap:16px;align-items:center;justify-content:space-between;font:.85rem Orbitron,system-ui,sans-serif;margin:8px 0}
+#inventario{flex:1;font-size:.8rem;color:var(--or)}
+.penalizacion{color:var(--bad);font-size:.8rem;text-align:center}
+#xp{color:var(--ok);font-size:1.2rem}
+.mini{font:700 .75rem Orbitron,system-ui,sans-serif;color:var(--cy);background:var(--panel);border:1px solid var(--cy);border-radius:8px;padding:6px 10px;cursor:pointer}
+#boton-sonido{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:20;width:46px;height:46px;border-radius:50%;border:1px solid var(--cy);background:var(--panel);color:var(--tx);font-size:1.3rem;cursor:pointer;box-shadow:0 0 14px var(--cy)}
+
+/* Tarjetas y botones */
+.card{background:var(--panel);border:1px solid var(--cy);border-radius:14px;padding:20px;box-shadow:0 0 22px rgba(25,230,255,.25),inset 0 0 30px rgba(25,230,255,.06)}
+.entrando{animation:entrar .45s ease}
+.temblando{animation:temblor .35s}
+.ctr{text-align:center}
+.btn{margin-top:12px;font:800 .9rem Orbitron,system-ui,sans-serif;letter-spacing:.06em;color:#001018;background:var(--cy);border:0;border-radius:8px;padding:12px 20px;cursor:pointer;box-shadow:0 0 16px var(--cy);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 28px var(--cy)}
+.btn.alt{background:transparent;color:var(--cy);border:1px solid var(--cy);box-shadow:none}
+button:focus-visible,[data-h]:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+.c{color:var(--ok);font-weight:700;cursor:help;white-space:nowrap}
+.rank{font:800 1.2rem Orbitron,system-ui,sans-serif;color:var(--ok)}
+.prize{color:var(--or)}
+
+/* Portada: solo imagen, título y START */
+.en-portada{background:linear-gradient(rgba(2,6,13,.3),rgba(2,6,13,.78)),url(../img/fondos/portada.png) center/cover no-repeat fixed,var(--bg)}
+.en-portada header,.en-portada .hud,.en-portada footer,.en-portada .floor{display:none}
+.en-portada .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.en-portada #escenario{width:100%}
+.portada{text-align:center;padding:24px 8px}
+.etiqueta{display:inline-block;background:var(--bad);color:#fff;font:800 .8rem Orbitron,system-ui,sans-serif;padding:3px 12px;letter-spacing:.15em}
+.titulo-grande{font-size:clamp(2rem,9vw,4.2rem);color:var(--cy);text-shadow:0 0 18px var(--cy),0 0 40px var(--cy);letter-spacing:.1em;margin:.3em 0;font-style:italic}
+.lead{font-size:1.1rem}
+.btn-start{font-size:1.3rem;padding:16px 56px;margin-top:22px;animation:latido 1.6s ease-in-out infinite}
+@keyframes latido{50%{box-shadow:0 0 38px var(--cy);transform:scale(1.05)}}
+
+/* Sectores y misiones */
+.ttl{text-align:center;font-size:1.4rem}
+.mu{text-align:center;color:var(--mu);margin-top:0}
+.cuadricula{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:12px 0}
+.tarjeta{font:inherit;color:var(--tx);text-align:left;border:1px solid var(--cy);border-radius:14px;min-height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;cursor:pointer;background:var(--panel) center/cover;box-shadow:0 0 18px rgba(25,230,255,.25);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.tarjeta:hover:not(:disabled){transform:translateY(-4px) scale(1.02);box-shadow:0 0 30px var(--cy)}
+.tarjeta b{font-family:Orbitron,system-ui,sans-serif;color:var(--or)}
+.tarjeta.bloqueada{opacity:.5;cursor:not-allowed;filter:grayscale(.7)}
+.tarjeta .miniatura{position:absolute;inset:0 0 auto 0;width:100%;height:96px;object-fit:cover;opacity:.9;border-bottom:1px solid var(--cy)}
+.tarjeta.con-miniatura{padding-top:106px}
+
+/* Teoría con ilustración interactiva */
+.escena{margin:0 0 14px;border:1px solid var(--cy);border-radius:12px;overflow:hidden;background:#04101c;box-shadow:0 0 16px rgba(25,230,255,.25)}
+.escena svg{display:block;width:100%;height:auto;max-height:320px}
+.escena figcaption{padding:8px 12px;color:var(--or);min-height:3.4em;border-top:1px solid rgba(25,230,255,.3);font-size:.95rem}
+.miniatura-pregunta{float:right;width:150px;border:1px solid var(--cy);border-radius:8px;margin:0 0 8px 12px}
+
+/* Preguntas */
+.opciones{display:grid;gap:10px;margin-top:10px;clear:both}
+.opcion{font:inherit;text-align:left;color:var(--tx);background:rgba(25,230,255,.07);border:1px solid var(--cy);border-radius:10px;padding:12px 14px;cursor:pointer;transition:background .2s,transform .15s}
+.opcion:hover:not(:disabled){background:rgba(25,230,255,.2);transform:translateX(4px)}
+.opcion:disabled{cursor:default}
+.opcion.ok{border-color:var(--ok);background:rgba(61,255,154,.18);box-shadow:0 0 14px var(--ok);opacity:1}
+.opcion.mal{border-color:var(--bad);background:rgba(255,59,92,.15);animation:temblor .35s}
+.opcion.sel{border-color:var(--or);background:rgba(255,138,31,.2);box-shadow:0 0 14px var(--or)}
+.q{font-size:1.08rem}
+.hueco{display:inline-block;min-width:90px;border-bottom:2px dashed var(--or);color:var(--or);text-align:center;font-weight:700}
+.hueco.ok{color:var(--ok);border-color:var(--ok)}
+.bien{color:var(--ok)}
+.aviso{color:var(--bad)}
+.union{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:10px;clear:both}
+.union .col{display:grid;gap:10px;align-content:start;position:relative;z-index:1}
+#lineas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+#lineas line{stroke:var(--ok);stroke-width:3;filter:drop-shadow(0 0 4px var(--ok))}
+
+/* Carrera */
+#carrera{margin:0 0 14px;padding:10px;border:1px solid var(--or);border-radius:12px;background:var(--panel);box-shadow:0 0 16px rgba(255,138,31,.3)}
+#carrera small{display:block;color:var(--mu);margin-top:6px}
+.pista{position:relative;height:250px;border-radius:10px;overflow:hidden;border:1px solid var(--cy);background:#000;--velocidad:.45s}
+.pista-fondo{position:absolute;inset:0;background:center/cover;opacity:.55;animation:paneo 12s ease-in-out infinite alternate}
+@keyframes paneo{from{background-position:0 50%;transform:scale(1.15)}to{background-position:100% 50%;transform:scale(1.25)}}
+.lineas-fx{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 60px,rgba(25,230,255,.25) 60px 62px,transparent 62px 120px);animation:lineas var(--velocidad) linear infinite}
+@keyframes lineas{to{background-position:-120px 0}}
+.carril{position:absolute;left:0;right:0;height:100px}
+.carril.arriba{top:8px}
+.carril.abajo{top:128px}
+.moto{position:absolute;bottom:6px;height:84px;transition:left .35s linear,transform .35s linear}
+.moto img{display:block;height:100%;width:auto;filter:drop-shadow(0 0 10px rgba(25,230,255,.7))}
+.moto.rival img{filter:drop-shadow(0 0 10px rgba(255,59,92,.7))}
+.moto.lenta{animation:bache .6s infinite;opacity:.8}
+@keyframes bache{50%{bottom:14px}}
+.estela{position:absolute;left:0;bottom:34px;height:5px;border-radius:3px;background:var(--or);box-shadow:0 0 10px var(--or);transition:width .35s linear}
+.estela.yo{background:var(--cy);box-shadow:0 0 10px var(--cy)}
+.obstaculo{position:absolute;bottom:6px;width:10px;height:60px;border-radius:2px;background:var(--or);opacity:.75;box-shadow:0 0 12px var(--or)}
+.obstaculo.ok{background:var(--ok);box-shadow:0 0 12px var(--ok)}
+.meta{position:absolute;right:0;top:0;bottom:0;width:14px;background:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/14px 14px}
+.tiempo{height:8px;border:1px solid var(--cy);border-radius:5px;overflow:hidden;margin-top:8px}
+.tiempo i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--bad),var(--cy))}
+.cuenta{font:800 5rem Orbitron,system-ui,sans-serif;color:var(--or);text-shadow:0 0 20px var(--or);animation:entrar .7s infinite}
+.flotante{position:fixed;top:32%;left:50%;transform:translateX(-50%);z-index:30;font:800 1.1rem Orbitron,system-ui,sans-serif;padding:8px 16px;border-radius:10px;background:var(--panel);animation:subir 1.4s forwards;pointer-events:none;text-align:center}
+.flotante.ok{color:var(--ok);border:1px solid var(--ok)}
+.flotante.mal{color:var(--bad);border:1px solid var(--bad)}
+@keyframes subir{to{transform:translate(-50%,-60px);opacity:0}}
+.trofeo{display:block;width:min(320px,80%);margin:0 auto 8px;border:1px solid var(--cy);border-radius:12px;box-shadow:0 0 18px var(--cy)}
+.disco{width:110px;height:110px;margin:0 auto;display:block;color:var(--cy);filter:drop-shadow(0 0 10px var(--cy));animation:girar 8s linear infinite}
+
+footer{margin-top:22px;font-size:.85rem;color:var(--mu)}
+footer p{margin:.5em 0}
+summary{cursor:pointer;color:var(--cy);font-family:Orbitron,system-ui,sans-serif}
+@media(max-width:560px){.union{gap:34px}.opcion{padding:10px}.miniatura-pregunta{width:110px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

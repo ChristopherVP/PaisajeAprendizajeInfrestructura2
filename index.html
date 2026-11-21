@@ -5,27 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>La Red del Grid · Paisaje de aprendizaje</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&display=swap">
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body class="en-portada">
 <div class="floor"></div>
-<button id="snd" type="button" aria-label="Activar o silenciar audio" aria-pressed="false">🔊</button>
+<button id="boton-sonido" type="button" aria-label="Activar o silenciar el audio" aria-pressed="false">🔊</button>
 <div class="wrap">
-<header>
-<h1>LA RED DEL GRID</h1>
-<p class="sub">Paisaje de aprendizaje · Infraestructura de TI</p>
-<div class="cyc" id="cyc"></div>
-</header>
-<div class="hud"><button id="home" class="mini" type="button">🗺 Mundos</button><div id="inv"></div><div class="pen"></div><div>XP <b id="xp">0</b></div></div>
-<div id="race" hidden></div>
-<main id="stage" aria-live="polite"></main>
-<footer>
-<details><summary>Referencias (IEEE)</summary>
-<div id="refs"></div>
-</details>
-<p>Ilustraciones vectoriales originales de estilo neón creadas para este proyecto.</p>
-</footer>
+  <header>
+    <h1>LA RED DEL GRID</h1>
+    <p class="sub">Paisaje de aprendizaje · Infraestructura de TI</p>
+    <div class="ciclos" id="ciclos" aria-hidden="true"></div>
+  </header>
+  <div class="hud">
+    <button id="boton-sectores" class="mini" type="button">◈ Sectores</button>
+    <div id="inventario"></div>
+    <div class="penalizacion"></div>
+    <div>XP <b id="xp">0</b></div>
+  </div>
+  <div id="carrera" hidden></div>
+  <main id="escenario" aria-live="polite"></main>
+  <footer>
+    <details><summary>Referencias (IEEE)</summary><div id="referencias"></div></details>
+    <p>Ilustraciones vectoriales originales de estilo neón creadas para este proyecto. Imágenes de motos y fondos: material de referencia de la franquicia TRON, usado con fines educativos.</p>
+  </footer>
 </div>
-<script src="juego.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/ilustraciones.js"></script>
+<script src="js/juego.js"></script>
 </body>
 </html>

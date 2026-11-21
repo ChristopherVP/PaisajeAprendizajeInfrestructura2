@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-label="Componentes y filtros"><style>
+.n{fill:#0a2233;stroke:#19e6ff;stroke-width:2}
+.t{fill:#d9f6ff;font:700 10px Orbitron,system-ui,sans-serif;text-anchor:middle;pointer-events:none}
+.s{fill:#7fa8b8;font:9px system-ui,sans-serif;text-anchor:middle;pointer-events:none}
+.l{fill:none;stroke:#19e6ff;stroke-opacity:.55;stroke-width:2;stroke-dasharray:6 4;animation:sv-d 1s linear infinite}
+@keyframes sv-d{to{stroke-dashoffset:-20}}
+.bl{animation:sv-b 1s steps(2) infinite}
+@keyframes sv-b{50%{opacity:.2}}
+.sh{animation:sv-s .5s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center top}
+@keyframes sv-s{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+[data-h]{cursor:pointer;outline:none}
+[data-h]:hover .n,[data-h]:focus .n,[data-h].on .n{stroke:#ff8a1f;fill:#3a2208}
+[data-h].on{filter:drop-shadow(0 0 6px #ff8a1f)}
+</style><defs><pattern id="g32" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#19e6ff" stroke-opacity=".12"/><animateTransform attributeName="patternTransform" type="translate" from="0 0" to="20 0" dur="2s" repeatCount="indefinite"/></pattern></defs><rect width="400" height="200" fill="#04101c"/><rect width="400" height="200" fill="url(#g32)"/><g data-h="0" tabindex="0" role="button" aria-label="Hardware"><rect class="n" x="8" y="75" width="66" height="50" rx="8"/><text class="t" x="41.0" y="104.0">Hardware</text></g><g data-h="1" tabindex="0" role="button" aria-label="Controladores de captura"><rect class="n" x="86" y="75" width="66" height="50" rx="8"/><text class="t" x="119.0" y="99.0">Captura</text><text class="s" x="119.0" y="111.0">drivers</text></g><g data-h="2" tabindex="0" role="button" aria-label="Buffer"><rect class="n" x="164" y="75" width="66" height="50" rx="8"/><text class="t" x="197.0" y="104.0">Buffer</text></g><g data-h="3" tabindex="0" role="button" aria-label="Decodificación"><rect class="n" x="242" y="75" width="66" height="50" rx="8"/><text class="t" x="275.0" y="104.0">Decodif.</text></g><g data-h="4" tabindex="0" role="button" aria-label="Filtros"><rect class="n" x="320" y="75" width="66" height="50" rx="8"/><text class="t" x="353.0" y="99.0">Filtros</text><text class="s" x="353.0" y="111.0">vista</text></g><path class="l" d="M74 100H86" style="stroke:#19e6ff"/><path class="l" d="M152 100H164" style="stroke:#19e6ff"/><path class="l" d="M230 100H242" style="stroke:#19e6ff"/><path class="l" d="M308 100H320" style="stroke:#19e6ff"/><circle r="5" fill="#ff8a1f" opacity="0"><animateMotion dur="5s" repeatCount="indefinite" path="M8 100H392" keyPoints="0;0;1;1" keyTimes="0;0.0;1.0;1" calcMode="linear"/><animate attributeName="opacity" dur="5s" repeatCount="indefinite" values="0;0;1;1" keyTimes="0;0;0.001;1"/></circle><text class="s" x="200" y="160">Tuberías de un sniffer</text></svg>
